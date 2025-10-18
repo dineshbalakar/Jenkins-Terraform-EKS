@@ -6,16 +6,16 @@ module "eks" {
   cluster_endpoint_public_access = true
 
   cluster_addons = {
-    coredns = {
-      most_recent = true
-    }
-    kube-proxy = {
-      most_recent = true
-    }
-    vpc-cni = {
-      most_recent = true
-    }
+  coredns = {
+    addon_version = "v1.10.1-eksbuild.2"
   }
+  kube-proxy = {
+    addon_version = "v1.27.1-eksbuild.2"
+  }
+  vpc-cni = {
+    addon_version = "v1.14.1-eksbuild.2"
+  }
+}
 
   vpc_id                   = module.vpc.vpc_id
   subnet_ids               = module.vpc.private_subnets
